@@ -1,0 +1,115 @@
+/* 排序面板 */
+#sort_file{
+  width:515px;
+  height:325px;
+  text-align:left;
+  background-color:#eee;
+}
+/* 排序面板 - 标题 */
+#sort_file h3{
+  text-align:left;
+  font-size:13px;
+  margin:0px;
+  padding:3px;
+  height:20px;
+  line-height:20px;
+  background-color:#fff;
+  /*   color:#1AB37D; */
+  font-weight:normal;
+  user-select:none;
+}
+#sort_file span{
+  margin-left:3px;
+}
+/* 排序面板 - 描述 */
+#sort_file p{
+  text-align:left;
+  margin:5px;
+  margin-top:13px;
+  margin-left:10px;
+  font-size:13px;
+}
+/* 文件列表区域 */
+#sort_file_list{
+  margin-left:5px;
+  width:410px;
+  height:255px;
+  overflow-y:hidden;
+  /*   border:1px solid red; */
+  float:left;
+  overflow:auto;
+}
+#sort_file_list tr:hover{
+  /*   color:#222; */
+  /*   background-color:#ccc; */
+  color:#eee;
+  background-color:#1ab37d;
+  cursor:default;
+}
+/* 当前选择的行的 */
+.sort_file_list_current_index_class{
+  color:#eee;
+  background-color:#1AB37D;
+}
+#sort_file_list span{
+  display:block;
+  margin:2px;
+  font-size:13px;
+  /* 文字超出隐藏并显示省略号 */
+  width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#sort_file_list table{
+  border:0px;
+}
+#sort_file_list thead{
+  border:0px;
+  background-color:#ccc;
+}
+/* 右侧按键 */
+#sort_file_button_list input{
+  width:85px;
+  height:28px;
+  margin:3px 0px 3px 6px;
+  padding:3px;
+  font-size:13px;
+  outline-style:none;
+  border:1px solid #ccc;
+  background-color:#eee;
+}
+#sort_file_button_list input:hover{
+  background-color:#ddd;
+}
+/* 确认/取消按钮 */
+#sort_file_confirm_cancel_button input{
+  position:relative;
+  bottom:-55px;
+  width:85px;
+  height:28px;
+  margin:3px 0px 3px 6px;
+  padding:3px;
+  font-size:13px;
+  outline-style:none;
+  border:1px solid #ccc;
+  background-color:#eee;
+}
+#sort_file_confirm_cancel_button input:hover{
+  background-color:#ddd;
+}
+/* 确定按钮 */
+#sort_file_confirm_button{
+  color:#eee;
+  background-color:#1AB37D !important;
+}
+#sort_file_confirm_button:hover{
+  background-color:#169C6D !important;
+}
+.test{
+  background-color:#ddd;
+}
+.sort_file_list_current_index_class{
+  color:#eee;
+  background-color:#1AB37D;
+}

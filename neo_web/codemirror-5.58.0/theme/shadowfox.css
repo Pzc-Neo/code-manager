@@ -1,0 +1,75 @@
+/*
+
+    Name:       shadowfox
+    Author:     overdodactyl (http://github.com/overdodactyl)
+
+    Original shadowfox color scheme by Firefox
+
+*/
+/* 编辑器的背景及默认字体颜色 */
+.cm-s-shadowfox.CodeMirror { background: #1E1E1E; color: #dfdfdf; }
+.cm-s-shadowfox div.CodeMirror-selected { background: #353B48; }
+.cm-s-shadowfox .CodeMirror-line::selection, .cm-s-shadowfox .CodeMirror-line > span::selection, .cm-s-shadowfox .CodeMirror-line > span > span::selection { background: #353B48; }
+.cm-s-shadowfox .CodeMirror-line::-moz-selection, .cm-s-shadowfox .CodeMirror-line > span::-moz-selection, .cm-s-shadowfox .CodeMirror-line > span > span::-moz-selection { background: #353B48; }
+/* 显示行号的面板的背景颜色 */
+.cm-s-shadowfox .CodeMirror-gutters { background: #333333 ; border-right: 1px solid #0c0c0d; }
+/* .cm-s-shadowfox .CodeMirror-gutters { background: #0c0c0d ; border-right: 1px solid #0c0c0d; } */
+.cm-s-shadowfox .CodeMirror-guttermarker { color: #555; }
+/* 显示行号面板的字体颜色 */
+.cm-s-shadowfox .CodeMirror-linenumber { color: #939393; }
+.cm-s-shadowfox .CodeMirror-cursor { border-left: 1px solid #fff; }
+
+/* 备注颜色 */
+.cm-s-shadowfox span.cm-comment { color: #56ad64; }
+/* 属性后面的值 */
+.cm-s-shadowfox span.cm-atom { color: #e69f7e; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-quote { color: #735ace; }
+/* css id选择器 */
+.cm-s-shadowfox span.cm-builtin { color: #fcdb9e; }
+/* html属性 */
+.cm-s-shadowfox span.cm-attribute { color: #b4dbf5; }
+/* 关键词 */
+.cm-s-shadowfox span.cm-keyword { color: #5a9fce; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-error { color: #da6201; }
+
+/* css属性的数字值 */
+.cm-s-shadowfox span.cm-number { color: #cce9c1; }
+/* html属性的值 */
+.cm-s-shadowfox span.cm-string { color: #f3ae8d; }
+.cm-s-shadowfox span.cm-string-2 { color: #f3ae8d; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-meta { color: #939393; }
+.cm-s-shadowfox span.cm-hr { color: #939393; }
+
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-header { color: #75BFFF; }
+.cm-s-shadowfox span.cm-qualifier { color: #75BFFF; }
+.cm-s-shadowfox span.cm-variable-2 { color: #75BFFF; }
+
+/* js属性,比如vue中的el、data */
+.cm-s-shadowfox span.cm-property { color: #aed5f7; }
+
+/* js函数名、变量名等 */
+.cm-s-shadowfox span.cm-def { color: #75BFFF; }
+/* js属性的值,比如vue中的el后面的 #app */
+.cm-s-shadowfox span.cm-bracket { color: #c76b20; }
+/* html的标签 */
+.cm-s-shadowfox span.cm-tag { color: #559cda; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-link:visited { color: #75BFFF; }
+
+/* new Vue 里面的Vue; console关键字等 */
+.cm-s-shadowfox span.cm-variable { color: #85ec85; }
+/* hover等 */
+.cm-s-shadowfox span.cm-variable-3 { color: #fcdb9e; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-link { color: #737373; }
+/* 运算符 */
+.cm-s-shadowfox span.cm-operator { color: #b1b1b3; }
+/* 还没确定是什么 */
+.cm-s-shadowfox span.cm-special { color: #d7d7db; }
+
+.cm-s-shadowfox .CodeMirror-activeline-background { background: rgba(185, 215, 253, .15) }
+.cm-s-shadowfox .CodeMirror-matchingbracket { outline: solid 1px rgba(255, 255, 255, .25); color: white !important; }

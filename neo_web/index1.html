@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端代码测试</title>
+    <link href="./css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="./css/index.css" rel="stylesheet" type="text/css">
+    <link href="./css/neo.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <!-- 代码高亮插件-start -->
+    <link rel="stylesheet" href="./codemirror-5.58.0/lib/codemirror.css">
+    <link rel="stylesheet" href="./codemirror-5.58.0/addon/display/fullscreen.css">
+    <!-- <link rel="stylesheet" href="./codemirror-5.58.0/theme/shadowfox.css"> -->
+
+    <!-- Neo：我自己修改过的样式文件 -->
+    <!-- 样式可以直接在文件修改。但是如果要改文件名的话，要把css文件里面的和文件名一样的字符，替换成新的文件名。
+        比如要把 forneo.css 的文件名改成 newcss.css。就要把 forneo.css 文件里面的 forneo 字符串也都替换成 newcss。-->
+    <link rel="stylesheet" href="./codemirror-5.58.0/theme/forneo.css">
+
+    <!-- <link rel="stylesheet" href="./"> -->
+    <script src="./codemirror-5.58.0/lib/codemirror.js"></script>
+
+    <!-- 自动关闭标签、关闭括号等功能 -->
+    <script src="./codemirror-5.58.0/addon/edit/matchbrackets.js"></script>
+    <script src="./codemirror-5.58.0/addon/edit/closebrackets.js"></script>
+    <script src="./codemirror-5.58.0/addon/edit/closetag.js"></script>
+    <script src="./codemirror-5.58.0/addon/edit/continuelist.js"></script>
+    <script src="./codemirror-5.58.0/addon/edit/trailingspace.js"></script>
+    <script src="./codemirror-5.58.0/addon/comment/continuecomment.js"></script>
+    <script src="./codemirror-5.58.0/addon/comment/comment.js"></script>
+    <script src="./codemirror-5.58.0/addon/display/fullscreen.js"></script>
+
+    <script src="./codemirror-5.58.0/keymap/vim.js"></script>
+
+    <script src="./codemirror-5.58.0/addon/search/searchcursor.js"></script>
+
+    <script src="./codemirror-5.58.0/addon/hint/show-hint.css"></script>
+    <script src="./codemirror-5.58.0/addon/hint/show-hint.js"></script>
+
+    <!-- js高亮 -->
+    <script src='./codemirror-5.58.0/mode/javascript/javascript.js'></script>
+    <script src='./codemirror-5.58.0/addon/hint/javascript-hint.js'></script>
+
+
+    <script src='./codemirror-5.58.0/addon/fold/xml-fold.js'></script>
+    <script src="./codemirror-5.58.0/addon/edit/matchtags.js"></script>
+
+    <!-- html高亮需要两个文件-start -->
+    <script src='./codemirror-5.58.0/mode/xml/xml.js'></script>
+    <script src='./codemirror-5.58.0/mode/htmlmixed/htmlmixed.js'></script>
+    <!-- html高亮需要两个文件-end -->
+    <script src='./codemirror-5.58.0/addon/hint/xml-hint.js'></script>
+    <script src='./codemirror-5.58.0/addon/hint/html-hint.js'></script>
+
+
+
+    <!-- css高亮 -->
+    <script src='./codemirror-5.58.0/mode/css/css.js'></script>
+    <script src='./codemirror-5.58.0/addon/hint/css-hint.js'></script>
+
+    <!-- 代码格式化 -->
+    <script src='./codemirror-5.58.0/lib/formatting.js'></script>
+    <!-- <script src='./codemirror-5.58.0/addon/fold/foldgutter.css'></script>
+    <script src='./codemirror-5.58.0/addon/fold/foldcode.js'></script>
+    <script src='./codemirror-5.58.0/addon/fold/foldgutter.js'></script>
+    <script src='./codemirror-5.58.0/addon/fold/brace-fold.js'></script>
+    <script src='./codemirror-5.58.0/addon/fold/xml-fold.js'></script>
+    <script src='./codemirror-5.58.0/addon/fold/indent-fold.js'></script>
+    <script src='./codemirror-5.58.0/addon/fold/comment-fold.js'></script> -->
+
+    <!-- <script src='./codemirror-5.58.0/addon/display/placeholder.js'></script> -->
+
+    <!-- <script src='./codemirror-5.58.0/addon/lint/lint.js'></script>
+    <script src='./codemirror-5.58.0/addon/lint/lint.css'></script>
+    <script src='./codemirror-5.58.0/addon/lint/html-lint.js'></script> -->
+
+    <style>
+        @font-face {
+            font-family: 'Hack-Regular-4';
+            src: url('./css/Hack-Regular-4.ttf');
+        }
+
+        .CodeMirror {
+            /* border-top: 1px solid rgb(34, 34, 34);
+            border-bottom: 1px solid rgb(34, 34, 34); */
+            /* border-top: 1px solid rgb(88, 88, 88); */
+            border-bottom: 1px solid rgb(88, 88, 88);
+            width: 100%;
+            height: 100%;
+            line-height: 20px;
+            font-family: 'Hack-Regular-4';
+            font-size: 13px;
+            /* letter-spacing: 0.2ch; */
+            /* background-color: #333333; */
+            /* background-color: rgb(36, 36, 36);
+            color: aliceblue; */
+        }
+    </style>
+    <!-- 代码高亮插件-end -->
+
+
+</head>
+
+<body>
+    <div id="app" :style="app_style" @click="root_control()">
+        <!-- 顶栏 -->
+        <div id="top_side" class="can_not_select" :style="top_side_style">
+            <div>
+                <!-- 数据库列表 -->
+                <select class="database_list" v-model="selected_database">
+                    <option v-for="database in database_list" :value=database>{{ database }}</option>
+                </select>
+                <span class="menu_option" @click.stop="hide_top_side_menu()"
+                    @mouseover="show_top_side_menu(this,$event,'file')">文件</span>
+                <span class="menu_option" @click.stop="hide_top_side_menu()"
+                    @mouseover="show_top_side_menu(this,$event,'edit')">编辑</span>
+                <span class="menu_option" @click.stop="hide_top_side_menu()"
+                    @mouseover="show_top_side_menu(this,$event,'model')">模板</span>
+                <!-- <span class="menu_option" @click.stop="hide_top_side_menu()"
+                    @mouseover="show_top_side_menu(this,$event,'library')">插入库</span> -->
+                <span class="menu_option" @click.stop="hide_top_side_menu()"
+                    @mouseover="show_top_side_menu(this,$event,'help')">帮助</span>
+                <!-- <span class="menu_option" @click.stop="show_top_side_menu(this,$event,'edit')">编辑</span>
+                <span class="menu_option" @click.stop="show_top_side_menu(this,$event,'model')">模板</span>
+                <span class="menu_option" @click.stop="show_top_side_menu(this,$event,'library')">插入库</span>
+                <span class="menu_option" @click.stop="show_top_side_menu(this,$event,'help')">帮助</span> -->
+
+                <!-- 运行及自动运行 -->
+                <span style="position:relative;left:20%;">
+                    Vim模式<input type="checkbox" class="checkbox_style" v-model="active_vim_mode">
+                    <input class="run_code_button neo_theme" type="button" value="运行" title="保存并运行代码(Ctrl+Shift+S)"
+                        @click="run_all_code()">
+                    <!-- <input class="run_code_button" type="button" v-model="auto_run_code" value="运行" @click="run_all_code()"> -->
+                    自动运行<input id="auto_run_checkbox" class="checkbox_style" type="checkbox" v-model="auto_run_code"
+                        value="auto_run">
+                </span>
+                <!-- <span class="menu_option" @click.stop="show_top_side_menu(this,$event)">js</span> -->
+            </div>
+        </div>
+
+        <!-- 动态菜单 -->
+        <div id='top_side_sub_menu' :style="top_side_sub_menu_style">
+            <ul>
+                <li v-for="item in commend_list" @click.stop="top_side_sub_menu_option(item)">{{ item.name }}</li>
+            </ul>
+        </div>
+
+        <!-- 底栏(状态栏) -->
+        <div id="bottom_side" v-html="bottom_side_html" :style="bottom_side_style"></div>
+
+        <!-- <img src="/img/fold.svg" @click="fold_group_file_list()" class="fold_group_file_list_class" :style="fold_group_file_list_style"> -->
+
+        <span @click="fold_group_list()" class="fold_group_list_class" :style="fold_group_list_style">G</span>
+
+        <!-- 展开/折叠组 -->
+        <span @click="fold_file_list()" class="fold_file_list_class" :style="fold_file_list_style">F</span>
+
+        <!-- <img src="/img/fold.svg" @click="fold_group_list()" :style="fold_group_list_style"> -->
+        <!-- 分组列表栏 -->
+        <div id='left_side_group' :style="left_side_group_style" @mouseup.right="show_group_context_menu($event)"
+            @click="hide_group_context_menu()">
+
+            <!-- 分组 右键菜单 -->
+            <div v-if="isshow_group_contextMenu" :style="group_context_menu_style" id="group_context_menu">
+                <ul>
+                    <li @click.stop="group_menu_option_rename()">重命名</li>
+                    <li @click.stop="group_menu_option_move_up()">上移</li>
+                    <li @click.stop="group_menu_option_move_down()">下移</li>
+                    <li @click.stop="group_menu_option_move_sort()">排序</li>
+                    <li @click.stop="group_menu_option_delete()">删除</li>
+                    <!-- <li @click.stop="group_menu_option_fileInfo()">文件信息</li> -->
+                </ul>
+            </div>
+
+            <!-- 添加分组 按钮 -->
+            <input class="big_button neo_theme" type="button" value="添加分组" @click="add_group()">
+            <!-- 搜索框 -->
+            <input class="group_search_box" type="text" v-model="group_search_box_value" placeholder="搜索分组...">
+            <!-- <div :class="{is_all_file_mode==true?left_all_file:left_all_file_active" @click="get_all_file_from_db()">所有文件</div> -->
+            <!-- 所有文件按钮 -->
+            <div class="left_all_file" @click="get_all_file_from_db()" :style="left_all_file_style"
+                v-text="all_file_button_text">{{all_file_button_text}}</div>
+            <div class="separation_line"></div>
+            <div class="left_side_group_list_class">
+                <!-- 分组列表项 -->
+                <ul>
+                    <!-- group_info是包含两个值的数组，第一个是：分组名；第二个是：分组id。示例：('默认分组1', 'default01') -->
+                    <li v-for="(group_info, index) in group_list"
+                        @click="change_group(group_info[1],group_info[0],index)"
+                        @mouseup.right="change_current_group_id_name_for_context_menu(group_info[1],group_info[0],index)"
+                        :class="{current_choose_group:group_info[1]==current_group_id}"
+                        :title="index+'.'+group_info[0]+'-'+group_info[1]">
+                        {{ group_info[0] }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 文件列表栏 -->
+        <div id='left_side_file' :style="left_side_file_style" @mouseup.right="show_file_context_menu($event)"
+            @click="hide_file_context_menu()">
+
+            <!-- 文件 右键菜单 -->
+            <div v-if="isshow_file_contextMenu" :style="file_context_menu_style" id="file_context_menu">
+                <ul>
+                    <li @click.stop="file_menu_option_rename()">重命名</li>
+                    <li @click.stop="file_menu_option_move_up()">上移</li>
+                    <li @click.stop="file_menu_option_move_down()">下移</li>
+                    <li @click.stop="file_menu_option_move_sort()">排序</li>
+                    <li @click.stop="file_menu_option_move_to_gruop()">移动到</li>
+                    <li @click.stop="file_menu_option_duplicate()">复制一份</li>
+                    <li @click.stop="file_menu_option_delete()">删除文件</li>
+                    <li @click.stop="file_menu_option_fileInfo()">文件信息</li>
+                </ul>
+            </div>
+
+            <!-- 排序面板 -->
+            <div>
+
+            </div>
+
+            <!-- 添加文件 按钮 -->
+            <input class="big_button neo_theme" type="button" value="添加文件" @click="add_file()">
+            <!-- 搜索框 -->
+            <input class="file_search_box" type="text" v-model="file_search_box_value" placeholder="搜索文件...">
+            <div class="left_side_file_list_class">
+                <!-- 文件列表 -->
+                <ul>
+                    <!-- current_file_list是包含两个值的数组，第一个是：文件名；第二个是：文件id。示例：('默认1', 'File-FpZtcYAnBcf7iNQT2QjWazymScBxe87z','2020-09-25 11:51:06','Group-rcb38etwCzQFfRQspJ7fReNMAjD2SbnD') -->
+                    <li v-for="(file,index) in current_file_list" @click="change_file(file[1],file[0],index,file[3])"
+                        @mouseup.right="change_current_file_id_name_for_context_menu(file[1],file[0],index,file[3])"
+                        :class="{current_choose_file:file[1]==current_file_id}" :title="index+'.'+file[0]+'-'+file[2]">
+                        {{file[0]}}
+                    </li>
+                    <!-- :class="{current_choose_file:index==current_choose_file}">{{file[0]}}</li> -->
+                </ul>
+            </div>
+        </div>
+        <div id="right_side" :style="right_side_style">
+            <div style="width: 50%;height: 100%;overflow:hidden;float: left;">
+                <!-- <div style="width: 50%;height: 100%;overflow:hidden;float: left;"> -->
+                <!-- html编辑框 -->
+                <div id="right_side_left_up" @keyup="change_html('html')" :style="right_side_left_up_style">
+                    <!-- <div style="bottom:0px;width: 100%;height: 5px;">12323</div> -->
+                    <!-- <div id="html_editer_menu"><span>测试文案</span></div> -->
+                    <!-- 编辑器顶栏 -->
+                    <div class="editor_top_panel" :style="editor_top_panel_style">
+                        <div class="editor_icon neo_theme" @click="html_editor_fill_full_vertical()" title="点击垂直放大此窗口">H
+                        </div><span style="padding-left: 7px;padding-right: 2px;">格式化:</span><span
+                            @click="code_formatting('html')" class="neo_theme">全部</span><span
+                            @click="code_formatting('html',false)" class="neo_theme">选中</span>
+                        <select v-model="selected_library">
+                            <option selected value="hint_text">插入库...</option>
+                            <option v-for="item in library_menu_commend_list" :value="item.name">{{item.name}}</option>
+                            <!-- <option value="search_library">搜索其他库...</option> -->
+                        </select>
+                    </div>
+                    <!-- 编辑器容器 -->
+                    <div class="editor_class" :style="editor_style">
+                        <textarea id='html_code_box' class="right_side_box" v-model="html_content"></textarea>
+                    </div>
+                    <!-- <textarea id='html_code_box' class="right_side_box" v-model="html_content"></textarea> -->
+                </div>
+                <!-- <div style="width: 100%; background-color: #1ab37d;height: 5px;"></div> -->
+                <!-- js编辑框 -->
+                <div id="right_side_left_down" :style="right_side_left_down_style" @keyup="change_html('js')">
+                    <!-- 编辑器顶栏 -->
+                    <div class="editor_top_panel" :style="editor_top_panel_style">
+                        <div class="editor_icon neo_theme" @click="js_editor_fill_full_vertical()" title="点击垂直放大此窗口">J
+                        </div><span style="padding-left: 7px;padding-right: 2px;">格式化:</span><span
+                            @click="code_formatting('js')" class="neo_theme">全部</span><span
+                            @click="code_formatting('js',false)" class="neo_theme">选中</span>
+                    </div>
+                    <!-- 编辑器容器 -->
+                    <div class="editor_class" :style="editor_style">
+                        <textarea id="js_code_box" class="right_side_box" v-model="js_content"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 50%;height: 100%;overflow:hidden;float: left;">
+                <!-- css编辑框 -->
+                <div id="right_side_right_up" :style="right_side_right_up_style" @keyup="change_html('css')">
+                    <!-- 编辑器顶栏 -->
+                    <div class="editor_top_panel" :style="editor_top_panel_style">
+                        <div class="editor_icon neo_theme" @click="css_editor_fill_full_vertical()" title="点击垂直放大此窗口">C
+                        </div><span style="padding-left: 7px;padding-right: 2px;">格式化:</span><span
+                            @click="code_formatting('css')" class="neo_theme">全部</span><span
+                            @click="code_formatting('css',false)" class="neo_theme">选中</span>
+                    </div>
+                    <!-- 编辑器容器 -->
+                    <div class="editor_class" :style="editor_style">
+                        <textarea id="css_code_box" class="right_side_box" v-model="css_content"></textarea>
+                    </div>
+                </div>
+
+
+                <!-- <div style="width: 100%; background-color: #1ab37d;height: 5px;"></div> -->
+                <!-- 显示完整的html -->
+                <div id="right_side_right_down" :class="right_side_right_down_class"
+                    :style="right_side_right_down_style">
+                    <img src="/img/fullScreen.svg" @click="change_right_side_right_down_class()">
+
+                    <!-- 编辑器顶栏 -->
+                    <div class="editor_top_panel" :style="full_html_top_panel_style">
+                        <div class="editor_icon neo_theme" @click="full_html_fill_full_vertical()" title="点击垂直放大此窗口">F
+                        </div>
+                        <!-- <span style="padding-left: 7px;padding-right: 2px;">格式化:</span> -->
+                        <span @click="change_right_side_right_down_class()" class="neo_theme">全屏</span>
+                        <!-- <span @click="code_formatting('css',false)" class="neo_theme">选中</span> -->
+                    </div>
+                    <!-- <div class="editor_class" :style="editor_style"> -->
+                    <div class="full_html_class" :style="full_html_style">
+                        <!-- <textarea id="css_code_box" class="right_side_box" v-model="css_content"></textarea> -->
+                        <iframe id="display_iframe" :src="iframe_src" class="display_iframe_class_normal"></iframe>
+                    </div>
+                        <!-- <iframe id="display_iframe" :src="iframe_src" class="display_iframe_class_normal"></iframe> -->
+                    <!-- <iframe src="./current_source/display.html" class="right_side_box_special"></iframe> -->
+                    <!-- <pre class="right_side_box">erjklsjafkldsajfldksfjdlsk</pre> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 文件排序面板 -->
+        <div id="sort_file" :style="sort_file_style">
+            <h3 @mousedown="sort_file_list_panel_move($event)" @mouseup="set_sort_file_list_change_can_move()"
+                @mousemove="set_sort_file_list_change_move($event)" class="can_not_select">
+                <img src="/favicon.ico" style="width:15px;position:relative;top:2px;">
+                <span>排序笔记
+                </span>
+            </h3>
+            <p>
+                对<span style="font-weight:bold;color:#1ab37d">{{ current_group_name}}</span>文件夹内的文件进行排序。
+            </p>
+            <!-- 左侧 - 文件列表 -->
+            <div id="sort_file_list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <span style="width: 50px;">文件名
+                                </span>
+                            </th>
+                            <th>
+                                <span style="width: 150px;">创建时间
+                                </span>
+                            </th>
+                            <th>
+                                <span style="width: 300px;">文件ID
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr v-for="(file ,index) in current_file_list" @click="sort_file_list_change_current_index(index)"
+                        :class="{sort_file_list_current_index_class:index==sort_file_list_current_index}">
+                        <td>
+                            <span :title="file[0]">
+                                {{index}}.{{file[0]}}
+                            </span>
+                        </td>
+                        <td>
+                            <span :title="file[2]">
+                                {{file[2]}}
+                            </span>
+                        </td>
+                        <td>
+                            <span :title="file[1]">
+                                {{file[1]}}
+                            </span>
+                        </td>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+
+
+
+            <!-- 右侧 按钮列表 -->
+            <div id="sort_file_button_list">
+                <input type="button" value="移到顶部" @click="sort_file_list_move_to_top()">
+                <input type="button" value="上移" @click="sort_file_list_move_up()">
+                <input type="button" value="下移" @click="sort_file_list_move_down()">
+                <input type="button" value="移到底部" @click="sort_file_list_move_to_bottom()">
+            </div>
+            <!-- 确认/取消按钮 -->
+            <div id="sort_file_confirm_cancel_button">
+                <input type="button" value="确定" id="sort_file_confirm_button">
+                <input type="button" value="取消" @click="sort_file_cancel()">
+            </div>
+        </div>
+
+        <!-- 文件信息面板 -->
+        <div class="show_file_info_panel" :style="show_file_info_panel_style">
+            <h3>
+                <img src="/favicon.ico" style="width:15px;position:relative;top:2px;">
+                <span>文件信息
+                </span>
+                <div class="x_close_button " @click="close_show_file_info_panel()">x</div>
+            </h3>
+            <table>
+                <thead style="cursor: default;">
+
+                    <th>字段
+                    </th>
+                    <th>值
+                    </th>
+                </thead>
+                <tr v-for="file_info in current_file_info">
+                    <td style="width:120px">{{file_info[0]}}
+                    </td>
+                    <td style="width:335px;">{{file_info[1]}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 搜索库的面板 -->
+        <div id="search_library_panel" :style="search_library_panel_style" @keyup.esc="close_search_library_panel()">
+            <p class="big_title">
+                <span>
+                    搜索库
+                </span>
+                <span class="x_close_button"
+                    style="display: inline-block;text-align: center; width: 25px;height: 25px;line-height: 25px; right: -695px;cursor:default;top: -5px;"
+                    @click="close_search_library_panel()">X
+                </span>
+            </p>
+            <input type="text" placeholder="输入库名,按Enter搜索..." v-model="library_name"
+                @keyup.enter='get_online_library()'>
+            <div id="search_library_result">
+                <table v-if="is_show_library_table">
+                    <thead>
+                        <td style="width:150px">库名
+                        </td>
+                        <td style="width:600px">地址
+                        </td>
+                        <td style="width:60px">操作
+                        </td>
+                    </thead>
+                    <tr v-for="(library ,index) in online_library_list" :class="{tr_dark:index%2!=0}">
+                        <td>{{library.name}}
+                        </td>
+                        <td>{{library.latest}}
+                        </td>
+                        <td>
+                            <input type="button" value="插入"
+                                @click="insert_library_for_online_library_to(library.latest,'js')">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- <div id="bottom_side" :style="bottom_side_style"></div> -->
+    </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="js/vue@2.6.12.js"></script> -->
+    <!-- <script src="./vue@2.6.12.js"></script> -->
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/vue@2.6.12.js"></script>
+
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>

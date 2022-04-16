@@ -1,0 +1,457 @@
+body {
+    font-size: 15px;
+}
+
+#app {
+    margin: 0px;
+    /* height: 100vh; */
+}
+
+/* p {
+    margin: 0px;
+    padding-top: 5px;
+} */
+
+/* 设置滚动条样式 */
+::-webkit-scrollbar {
+    width: 5px;
+    /*对垂直流动条有效*/
+    height: 5px;
+    /*对水平流动条有效*/
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /*滚动条的圆角*/
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); */
+    background-color: rgb(110, 110, 110);
+    /*滚动条的背景颜色*/
+}
+
+/* 左侧 */
+#left_side_group {
+    width: 160px;
+    background-color: #333;
+    margin: 0;
+    position: relative;
+    overflow-y: auto;
+    /* overflow-y: hidden; */
+    overflow-x: hidden;
+    float: left;
+}
+
+#left_side_group>ul {
+    overflow-y: auto;
+    width: 100%;
+    margin: 0px;
+}
+
+
+#left_side_group>ul>li {
+    list-style: none;
+    padding: 3px 5px 3px 7px;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    left: -41px;
+    cursor: pointer;
+    color: rgb(150, 150, 150);
+    background-color: #333;
+}
+
+
+#left_side_group>ul>li:hover {
+    list-style: none;
+    padding: 3px 5px 3px 7px;
+    width: 100%;
+    height: 25px;
+    position: relative;
+    left: -40px;
+    cursor: pointer;
+    color: rgb(26, 179, 125);
+    background-color: rgb(255, 255, 255);
+}
+
+
+#left_side_file {
+    width: 160px;
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: left;
+}
+#left_side_file>ul{
+    width: 100%;
+    margin: 0px;
+}
+
+#left_side_file>ul>li {
+    list-style: none;
+    padding: 2px 5px 0px 7px;
+    width: 100%;
+    height: 30px;
+    position: relative;
+    left: -40px;
+    /* margin:15px 5px 5px -25px; */
+    cursor: pointer;
+    color: rgb(46, 46, 46);
+    background-color: rgb(235, 235, 235);
+}
+
+
+#left_side_file>ul>li:hover {
+    list-style: none;
+    padding: 3px 5px 0px 7px;
+    width: 100%;
+    height: 25px;
+    line-height: 23px;
+    position: relative;
+    left: -41px;
+    cursor: pointer;
+    /* color: rgb(235, 235, 235); */
+    /* background-color: rgb(51,51,51) */
+    /* background-color: rgb(26, 179, 125); */
+    background-color: #d8d8d8 !important;
+}
+
+#right_side {
+    margin: 0px;
+    overflow: hidden;
+}
+
+
+/* 右边的小框架 */
+#right_side_left_up {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color: aquamarine;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+
+#right_side_left_down {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    display: flex;
+    background-color: rgb(193, 127, 255);
+}
+
+#right_side_right_up {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    bottom: 100%;
+    left: 50%;
+    display: flex;
+    background-color: rgb(193, 127, 255);
+}
+
+.right_side_right_down_class_normal {
+    width: 50%;
+    height: 50%;
+    position: relative;
+    bottom: 100%;
+    left: 50%;
+    display: flex;
+    background-color: rgb(23, 216, 216);
+}
+
+/* 全屏样式 */
+.right_side_right_down_class_fullscreen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    background-color: rgb(23, 216, 216);
+    z-index: 100000;
+}
+
+.right_side_box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgb(238, 238, 238);
+    color: rgb(49, 49, 49);
+    padding: 10px;
+    line-height: 28px;
+}
+
+.right_side_box_special {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    color: rgb(49, 49, 49);
+}
+
+#left_side_file>ul>li {
+    list-style: none;
+    padding: 3px 5px 0px 7px;
+    width: 100%;
+    height: 25px;
+    line-height: 23px;
+    position: relative;
+    left: -40px;
+    cursor: pointer;
+    color: rgb(46, 46, 46);
+    background-color: rgb(235, 235, 235);
+}
+
+
+/* 添加分组和添加文件按钮 */
+.big_button {
+    width: 100%;
+    height: 30px;
+    color: rgb(235, 235, 235);
+    background-color: rgb(26, 179, 125);
+    border: 0px;
+    /* border-bottom: 1px solid #333; */
+    cursor: pointer;
+    border-right: 1px solid #333333;
+}
+
+.big_button:hover {
+    color: rgb(235, 235, 235);
+    background-color: rgb(44, 196, 143);
+}
+
+
+.big_button:active {
+    background-color: rgb(33, 172, 123);
+}
+
+/* 顶栏菜单选项 */
+#top_side>p {
+    width: 100%;
+    height: 20px;
+}
+
+.menu_option {
+    width: 60px;
+    height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: default;
+}
+
+.menu_option:hover {
+    background-color: #444444;
+}
+
+
+
+/* 菜单 */
+#file_context_menu>ul>li {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    list-style: none;
+    position: relative;
+    left: -35px;
+    /* background-color: rgba(228, 228, 228, 0.8); */
+    background-color: #1AB37D;
+    padding: 2px 5px;
+    cursor: default;
+}
+
+#file_context_menu>ul>li:hover {
+    width: 100%;
+    list-style: none;
+    position: relative;
+    left: -35px;
+    cursor: default;
+    background-color: #3bc48e;
+}
+
+
+/* 菜单 */
+#group_context_menu>ul>li {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    list-style: none;
+    position: relative;
+    left: -35px;
+    background-color: #1AB37D;
+    padding: 2px 5px;
+    cursor: default;
+}
+
+#group_context_menu>ul>li:hover {
+    width: 100%;
+    list-style: none;
+    position: relative;
+    left: -35px;
+    cursor: default;
+    background-color: #3bc48e;
+}
+
+/* 当前选择的分组 样式 */
+.current_choose_group {
+    /* color: #3bc48e !important;
+    background-color: #EBEBEB !important; */
+    color: rgb(26, 179, 125) !important;
+    background-color: rgb(255, 255, 255) !important;
+    /* border: 1px solid #1AB37D; */
+    /* border-right: 8px solid #333 !important; */
+}
+
+/* 当前选择的文件 样式 */
+.current_choose_file {
+    /* background-color: rgb(26, 179, 125) !important; */
+    background-color: #d8d8d8 !important;
+    /* color: #EBEBEB !important; */
+    border-left: 0px;
+}
+
+
+#top_side {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #aaa;
+    background-color: #333333;
+
+
+    /* 以下是禁止用户选择菜单文字 */
+    -webkit-touch-callout: none;
+    /*系统默认菜单被禁用*/
+    -webkit-user-select: none;
+    /*webkit浏览器*/
+    -khtml-user-select: none;
+    /*早期浏览器*/
+    -moz-user-select: none;
+    /*火狐*/
+    -ms-user-select: none;
+    /*IE10*/
+    user-select: none;
+}
+
+/* 顶栏菜单选项 */
+#top_side>p {
+    width: 100%;
+    height: 20px;
+}
+
+.menu_option {
+    width: 60px;
+    height: 20px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: default;
+
+}
+
+.menu_option:hover {
+    background-color: #444444;
+}
+
+
+#top_side_sub_menu>ul>li {
+    list-style: none;
+    position: relative;
+    left: -40px;
+    padding: 5px;
+    cursor: default;
+    color: #333;
+
+
+    /* 以下是禁止用户选择菜单文字 */
+    -webkit-touch-callout: none;
+    /*系统默认菜单被禁用*/
+    -webkit-user-select: none;
+    /*webkit浏览器*/
+    -khtml-user-select: none;
+    /*早期浏览器*/
+    -moz-user-select: none;
+    /*火狐*/
+    -ms-user-select: none;
+    /*IE10*/
+    user-select: none;
+}
+
+#top_side_sub_menu>ul>li:hover {
+    color: #EBEBEB;
+    background-color: #3BC48E;
+}
+
+
+
+/* 右下角完整html的全屏按钮的样式 */
+#right_side_right_down>img {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    cursor: pointer;
+    z-index: 1000000;
+}
+
+#right_side_right_down>img:active {
+    width: 22px;
+    height: 22px;
+}
+
+.fold_group_file_list_class:hover {
+    color: red;
+}
+
+.fold_file_list_class,
+.fold_group_list_class {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+    not supported by any browser */
+}
+
+/* 
+#html_editer_menu{
+    position: relative;
+    width: 100%;
+    height: 35px;
+    background-color: #3bc48e;
+    left: 20px;
+    top: 20px;
+    z-index: 100000;
+} */
+
+/* #left_side_group>input:hover {
+    width: 100%;
+    height: 35px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(26, 179, 125);
+    border: 0px;
+    cursor: pointer;
+    border-right: 1px solid #333333;
+}
+
+#left_side_file>input:hover {
+    width: 100%;
+    height: 35px;
+    color: rgb(235, 235, 235);
+    background-color: rgb(44, 196, 143);
+    border: 0px;
+    cursor: pointer;
+    border-right: 1px solid #333333;
+} */

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display</title>
+  <link rel='stylesheet' href='./current.css'>
+</head>
+
+<body>
+  <!-- neo_front_end_snippets_tool_body_start -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+</script>
+<link rel="stylesheet" href="/css/normalize.css">
+<div id="app">
+  <div id="sort_file">
+    <h3>
+      <img src="/favicon.ico" style="width:15px;position:relative;top:2px;">
+      <span>排序笔记
+      </span> 
+    </h3>
+    <p>
+      对
+      <span style="font-weight:bold">{{ current_group_name}}
+      </span>文件夹内的文件进行排序。
+    </p>
+    <!-- 左侧 - 文件列表 -->
+    <div id="sort_file_list">
+      <table>
+        <thead>
+          <th>
+            <span>文件名
+            </span>
+          </th>
+          <th>
+            <span>创建时间
+            </span>
+          </th>
+          <th>
+            <span>文件ID
+            </span>
+          </th>
+        </thead>
+        <tr v-for="(file ,index) in file_list" @click="sort_file_list_change_current_index(index)"
+            :class="{test:index%2!=0,sort_file_list_current_index_class:index==sort_file_list_current_index}">
+          <td>
+            <span>
+              {{index}}.{{file[0]}}
+            </span>
+          </td>
+          <td>
+            <span>
+              {{file[1]}}
+            </span>
+          </td>
+          <td>
+            <span>
+              {{file[2]}}
+            </span>
+          </td>
+        <tr>
+        </tr> 
+      </table>
+    </div>
+    <!-- 右侧 按钮列表 -->
+    <div id="sort_file_button_list">
+      <input type="button" value="移到顶部" @click="sort_file_list_move_to_top()">
+      <input type="button" value="上移">
+      <input type="button" value="下移">
+      <input type="button" value="移到底部">
+    </div>
+    <!-- 确认/取消按钮 -->
+    <div id="sort_file_confirm_cancel_button">
+      <input type="button" value="确定" id="sort_file_confirm_button">
+      <input type="button" value="取消">
+    </div>
+  </div>
+</div>
+
+<!-- neo_front_end_snippets_tool_body_end -->
+  <script src="./current.js"></script>
+</body>
+
+</html>
